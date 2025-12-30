@@ -83,9 +83,9 @@
 		p = fgets(status, 5, fp);
 		fclose(fp);
 		if (!p || strcmp(status, "up\n") != 0)
-			return "Not Connected";
+			return "Offline";
 
-    return "Connected";
+    return "Online";
 	}
 
 /* TODO: Abstract state retrieval */

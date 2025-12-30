@@ -15,9 +15,9 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray         = 1;        /* 0 means no systray */
 static const int showbar             = 1;        /* 0 means no bar */
 static const int topbar              = 1;        /* 0 means bottom bar */
-static const int horizpadbar         = 16;       /* horizontal padding for statusbar */
-static const int vertpadbar          = 32;       /* vertical padding for statusbar */
-static const char *fonts[]           = { "monospace:size=11:antialias=true:hinting=true:style=Bold", "Symbols Nerd Font Mono:size=11:style=Regular:antialias=true:hinting=true" };
+static const int horizpadbar         = 8;       /* horizontal padding for statusbar */
+static const int vertpadbar          = 16;       /* vertical padding for statusbar */
+static const char *fonts[]           = { "monospace:size=10:antialias=true:hinting=true:style=Bold", "Symbols Nerd Font Mono:size=10:style=Regular:antialias=true:hinting=true" };
 static const char dmenuvertpad[]     = "16";
 static const char dmenulines[]       = "4";
 static char normbgcolor[]            = "#222222";
@@ -73,16 +73,23 @@ static char *colors[][3] = {
 
 /* tagging */
 static const char *tags[] = {
-  "火",
-  "木",
-  "土",
-  "金",
+  "Terminal",
+  "Browser",
+  "Development",
+  "Media",
 };
 
 static const Rule rules[] = {
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ NULL,       NULL,       NULL,       0,            False,       -1 },
-  { "imv",      NULL,       NULL,       1,            True,        -1 }
+	/* class                instance    title       tags mask     isfloating   monitor */
+  { "st",                 NULL,       NULL,       1 << 0,       False,       -1 },
+  { "firefox",            NULL,       NULL,       1 << 1,       False,       -1 },
+  { "librefox",           NULL,       NULL,       1 << 1,       False,       -1 },
+  { "brave",              NULL,       NULL,       1 << 1,       False,       -1 },
+  { "mongodb compass",    NULL,       NULL,       1 << 2,       False,       -1 },
+  { "gimp",               NULL,       NULL,       1 << 2,       False,       -1 },
+  { "inkscape",           NULL,       NULL,       1 << 2,       False,       -1 },
+  { "mpv",                NULL,       NULL,       1 << 3,       False,       -1 },
+  { "sxiv",               NULL,       NULL,       1 << 3,       True,        -1 },
 };
 
 /* layout(s) */
@@ -93,9 +100,9 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "ロ",      tile },    /* first entry is default */
-	{ "フ",      NULL },    /* no layout function means floating behavior */
-	{ "ス",      monocle },
+	{ "Tiled",    tile                },    /* first entry is default */
+	{ "Float",    NULL                },    /* no layout function means floating behavior */
+	{ "Stack",    monocle             },
 };
 
 /* key definitions */
