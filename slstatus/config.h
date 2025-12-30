@@ -67,7 +67,7 @@ static const char unknown_str[] = "  ";
  * wifi_state_icon     Either it's connected or not    interface name (wlan0)
  */
 static const struct arg args[] = {
-    {datetime, "%s", "%d %B %y"},
+    {datetime, "%s", "%d %B %Y"},
     {separator, "%s", "    "},
     {datetime, "%s", "%H:%M"},
     {separator, "%s", "    "},
